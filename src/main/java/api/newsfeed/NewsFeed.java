@@ -1,12 +1,8 @@
 package api.newsfeed;
 
-import java.util.List;
+import java.util.Map;
 
-import org.json.simple.JSONObject;
-import org.neo4j.graphdb.Node;
-
-
-public interface SocialGraph {
+public interface NewsFeed {
 
     /**
      * create a new user
@@ -31,8 +27,8 @@ public interface SocialGraph {
      * @param content
      *            status update content object
      */
-    void createStatusUpdate(long timestamp, Node user,
-            StatusUpdate content);
+    void createStatusUpdate(final long timestamp,final  String user,
+            final Map<String,Object> content);
 
     /**
      * create a new friendship from a user to another
@@ -42,7 +38,7 @@ public interface SocialGraph {
      * @param followed
      *            user being followed
      */
-    void createFriendship(Node following, Node followed);
+    void createFriendship(final String followingId, final String followedId);
 
     /**
      * read some status updates for/from a user
@@ -58,8 +54,8 @@ public interface SocialGraph {
      * @return list containing numItems status update Activities<br>
      *         (Activitystrea.ms)
      */
-    List<JSONObject> readStatusUpdates(Node poster, Node user,
-            int numItems, boolean ownUpdates);
+    Map<String, Object> readStatusUpdates(String posterId, String userId,
+            final int numItems, final boolean ownUpdates);
 
     /**
      * delete a user removing it from all replica layers of following users
@@ -67,7 +63,7 @@ public interface SocialGraph {
      * @param user
      *            user that shall be deleted
      */
-    void deleteUser(final Node user);
+    void deleteUser(final String userId);
 
     /**
      * remove a follow edge from one user to another
@@ -79,7 +75,7 @@ public interface SocialGraph {
      * @return true - if the follow edge has been removed<br>
      *         false - if there is no follow edge between the users
      */
-    boolean removeFriendship(Node following, Node followed);
+    boolean removeFriendship(final String followingId, final String followedId);
 
     /**
      * delete a status update from a user
@@ -91,6 +87,6 @@ public interface SocialGraph {
      * @return true - if the status update has been removed<br>
      *         false - if the status update is not owned by the user requesting
      */
-    boolean deleteStatusUpdate(Node user, Node statusUpdate);
+    boolean deleteStatusUpdate(final String user, final String statusUpdateId);
     
 }
