@@ -13,7 +13,22 @@ basic API for Metalcon backend components
 # Usage
 
 The basic API is used in the API for your backend component.  
-The [ZMQ Worker](../../../zmqWorker) does also use the basic API for parsing errors.
+
+## Metalcon: Big picture
+
+To let the client (middleware) send requests to your backend component there are three pojects involved:
+
+1. API: basic Metalcon API defining response classes you can extend
+
+2. <component>API: component API based upon the basic API that (can) has additional requests and responses.  
+
+   Until this point, there is no technology for transmission set.
+
+3. [middleware](../../../middleware): client with a dispatcher that uses your component API to send requests and interpret responses.
+
+4. [zmqWorker](../../../zmqWorker): worker living in your component that parses incoming requests and your responses and sends them to the client via ZeroMQ. The worker uses the basic API.
+
+5. <component>: your backend component used your API and the worker. It interprets incoming requests and delegates the responses to the worker.
 
 ## Requests
 
