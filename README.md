@@ -13,7 +13,7 @@ basic API for Metalcon backend components
 # Usage
 
 The basic API is used in the API for your backend component.  
-The [ZMQ Worker](../../zmqWorker) does also use the basic API for parsing errors.
+The [ZMQ Worker](../../../zmqWorker) does also use the basic API for parsing errors.
 
 ## Requests
 
