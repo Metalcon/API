@@ -29,7 +29,10 @@ To let the client (middleware) send requests to your backend component there are
 
 Basic request class `Request` that must be extended in order to use the worker.  
 Requests do not have any contraints yet.
-There is a `ShutdownRequest` for the worker.  
+
+### ShutdownRequest
+
+Send the `ShutdownRequest` to shutdown the transmission layer. (here: ZeroMQ Worker)
 
 ## Responses
 
