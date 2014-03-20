@@ -24,4 +24,18 @@ public class UsageErrorResponse extends ErrorResponse {
         super(ErrorType.USAGE_ERROR, errorMessage, solution);
     }
 
+    /**
+     * create usage error response
+     * 
+     * @param e
+     *            exception to get the error message from
+     * @param solution
+     *            solution suggestion (may be <b>null</b>)
+     */
+    public UsageErrorResponse(
+            Exception e,
+            String solution) {
+        super(ErrorType.USAGE_ERROR, e, solution);
+    }
+
 }

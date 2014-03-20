@@ -52,20 +52,16 @@ public abstract class ErrorResponse extends Response {
      * 
      * @param errorType
      *            error type defining the occurrence location
-     * @param errorMessage
-     *            error message describing the error
-     * @param solution
-     *            solution suggestion (may be <b>null</b>)
      * @param e
      *            exception to get the error message from
+     * @param solution
+     *            solution suggestion (may be <b>null</b>)
      */
     public ErrorResponse(
             ErrorType errorType,
-            String errorMessage,
-            String solution,
-            Exception e) {
-        this(errorType, errorMessage, solution);
-        errorMessage = e.getMessage();
+            Exception e,
+            String solution) {
+        this(errorType, e.getMessage(), solution);
     }
 
     /**

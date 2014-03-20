@@ -24,4 +24,18 @@ public class InternalServerErrorResponse extends ErrorResponse {
         super(ErrorType.INTERNAL_SERVER_ERROR, errorMessage, solution);
     }
 
+    /**
+     * create internal server error response
+     * 
+     * @param e
+     *            exception to get the error message from
+     * @param solution
+     *            solution suggestion (may be <b>null</b>)
+     */
+    public InternalServerErrorResponse(
+            Exception e,
+            String solution) {
+        super(ErrorType.INTERNAL_SERVER_ERROR, e, solution);
+    }
+
 }
