@@ -1,6 +1,5 @@
 package de.metalcon.api.requests;
 
-import java.io.Serializable;
 
 /**
  * request to shutdown the backend service
@@ -8,7 +7,7 @@ import java.io.Serializable;
  * @author sebschlicht
  * 
  */
-public class ShutdownRequest implements Serializable {
+public class ShutdownRequest extends Request {
 
     private static final long serialVersionUID = -6696026083677610196L;
 
