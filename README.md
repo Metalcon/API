@@ -23,7 +23,7 @@ Keep in mind that requests must be serializable and therefore implement the prop
 ## Responses
 
 Basic response class `Response` that must be extended in order to use the worker.  
-Responses have a status message at least:
+Responses have a *status message* at least:
 * success: signalizes that the request was correct
 * error: signalizes an error concerning the request in any layer, see `ErrorResponse`
 
