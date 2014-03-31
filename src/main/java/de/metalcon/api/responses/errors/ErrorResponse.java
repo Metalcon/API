@@ -44,6 +44,7 @@ public abstract class ErrorResponse extends Response {
             String solution) {
         super("error");
         this.errorType = errorType;
+        this.errorMessage = errorMessage;
         this.solution = solution;
     }
 
