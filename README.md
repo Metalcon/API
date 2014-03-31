@@ -1,4 +1,4 @@
-# API
+# Backend API
 
 basic API for Metalcon backend components
 
@@ -7,7 +7,7 @@ basic API for Metalcon backend components
     <dependency>
       <groupId>de.metalcon</groupId>
       <artifactId>api</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>0.1.0</version>
     </dependency>
 
 # Usage
@@ -27,8 +27,12 @@ To let the client (middleware) send requests to your backend component there are
 
 ## Requests
 
-There is no basic request class, but a `ShutdownRequest` for the worker.  
-Keep in mind that requests must be serializable and therefore implement the proper interface.
+Basic request class `Request` that must be extended in order to use the worker.  
+Requests do not have any contraints yet.
+
+### ShutdownRequest
+
+Send the `ShutdownRequest` to shutdown the transmission layer. (here: ZeroMQ Worker)
 
 ## Responses
 
